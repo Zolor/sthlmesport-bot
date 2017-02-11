@@ -8,5 +8,5 @@ To Keep track of new users, statistics and other useful information
 
 Tasks:
 - Profanity Filter
-- PM new members with our rules
+- PM new members with our rules ✔
 - User statistics
