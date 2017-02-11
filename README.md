@@ -8,6 +8,7 @@ To Keep track of new users, statistics and other useful information
 
 Tasks:
 - Profanity Filter
+- Strike system using a dict to track how many strikes users have. 3 strikes(warnings) results in a kick.
 - PM new members with our rules ✔
 - User statistics
 
