@@ -26,7 +26,8 @@ async def on_message(message):
 async def on_member_join(member):
     server = member.server
     fmt = 'Welcome {0.mention} to {1.name}!'
+    nu_pm = 'Welcome to {0.name}! Make sure to read the rules in <#220934558164451328> . Best Regards, STHLM E-sport'
     await client.send_message(server, fmt.format(member, server))
-
+    await client.send_message(member, nu_pm.format(server))
 client.run(secret.BOT_TOKEN)
 
