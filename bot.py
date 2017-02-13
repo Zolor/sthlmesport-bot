@@ -3,10 +3,11 @@ import discord
 import secret
 import logging
 
+#Make sure logging is targetted!
 logging.basicConfig(filename='log/sthlmesportbot.log',level=logging.INFO,format='%(asctime)s %(message)s')
 
 client = discord.Client()
-
+#Make sure dictionary.txt is targetted!
 with open('dictionary.txt', 'r') as handle:
     word_list = []
     for line in handle:
@@ -21,14 +22,23 @@ async def on_message(message):
     if message.content.startswith('!hello'):
         msg = 'Hello {0.author.mention}'.format(message)
         await client.send_message(message.channel, msg)
+    if message.content.startswith('!måndag'):
+        msg = 'Snart är det Lördag igen!~'.format(message)
+        await client.send_message(message.channel, msg)
+    if message.content.startswith('!onsdag'):
+        msg = 'Lill-Lördag!'.format(message)
+        await client.send_message(message.channel, msg)
+    if message.content.startswith('!torsdag'):
+        msg = 'Fredag imorgon! Redo för !Fredagsmys ??'.format(message)
+        await client.send_message(message.channel,msg)
     if message.content.startswith('!fredagsmys') or message.content.startswith('!fredag'):
         msg = 'På Fredagar är det Fredagsmys!'.format(message)
         await client.send_message(message.channel, msg)
     if message.content.startswith('!lördag'):
         msg = 'Snart är det Måndag igen!~'.format(message)
         await client.send_message(message.channel, msg)
-    if message.content.startswith('!måndag'):
-        msg = 'Snart är det Lördag igen!~'.format(message)
+    if message.content.startswith('!söndag'):
+        msg = 'Gaming Day \o/'.format(message)
         await client.send_message(message.channel, msg)
 #Profanity Filter
     for word in word_list:
