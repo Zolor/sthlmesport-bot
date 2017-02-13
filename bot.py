@@ -25,13 +25,16 @@ async def on_message(message):
     if message.content.startswith('!måndag'):
         msg = 'Snart är det Lördag igen!~'.format(message)
         await client.send_message(message.channel, msg)
+    if message.content.startswith('!tisdag'):
+        msg = 'T-3 dagar kvar tills !Fredagsmys !'.format(message)
+        await client.send_message(message.channel, msg)
     if message.content.startswith('!onsdag'):
         msg = 'Lill-Lördag!'.format(message)
         await client.send_message(message.channel, msg)
     if message.content.startswith('!torsdag'):
         msg = 'Fredag imorgon! Redo för !Fredagsmys ??'.format(message)
         await client.send_message(message.channel,msg)
-    if message.content.startswith('!fredagsmys') or message.content.startswith('!fredag'):
+    if message.content.find('!fredag') >= 0:
         msg = 'På Fredagar är det Fredagsmys!'.format(message)
         await client.send_message(message.channel, msg)
     if message.content.startswith('!lördag'):
@@ -43,11 +46,13 @@ async def on_message(message):
 #Profanity Filter
     for word in word_list:
         if message.content.find(word) >= 0:
+            user = str(message.author)
             msg = 'Watch your profanity {0.author.mention}!'.format(message)
             await client.send_message(message.channel, msg)
-            logging.warning("Profanity blocked: " + message.content)
+            logging.warning("Message blocked: " + message.content + " From: " + user)
             await client.delete_message(message)
             break
+
 
 @client.event
 async def on_member_join(member):
