@@ -17,7 +17,6 @@ with open('dictionary.txt', 'r') as handle:
 
 @client.event
 async def on_message(message):
-    message.content = message.content.lower()
     #Profanity Filter
     for word in word_list:
         if message.content.find(word) >= 0:
