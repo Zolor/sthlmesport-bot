@@ -29,7 +29,7 @@ async def on_message(message):
     if message.author == client.user:
        return
     if message.content.startswith('!'):
-        msg = kommando_check(message.content).format(message)
+        msg = kommando_check(message.content,admin).format(message)
         await client.send_message(message.channel, msg)
 
 @client.event
