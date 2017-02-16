@@ -1,5 +1,6 @@
 commands = {}
-with open("commands.csv") as f:
+#Remember to set definitive path
+with open("/usr/local/src/sthlmesport-bot/commands.csv") as f:
     for line in f:
        (key, val) = line.split(",")
        commands[str(key)] = val
@@ -17,7 +18,8 @@ def kommando_check(message):
             key1 = key1.lower()
             #Make sure commands.csv is targetted!
             if key1 not in commands:
-                file = open("commands.csv", "a")
+#Remember to set definitive path
+                file = open("/usr/local/src/sthlmesport-bot/commands.csv", "a")
                 file.write( "\n" + key1 + "," + key2)
                 file.close()
                 #add to dict

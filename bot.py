@@ -5,11 +5,11 @@ import logging
 from kommando import kommando_check
 
 #Make sure logging is targetted!
-logging.basicConfig(filename='log/sthlmesportbot.log',level=logging.INFO,format='%(asctime)s %(message)s')
+logging.basicConfig(filename='/usr/local/src/sthlmesport-bot/log/sthlmesportbot.log',level=logging.INFO,format='%(asctime)s %(message)s')
 
 client = discord.Client()
 #Make sure dictionary.txt is targetted!
-with open('dictionary.txt', 'r') as handle:
+with open('/usr/local/src/sthlmesport-bot/dictionary.txt', 'r') as handle:
     word_list = []
     for line in handle:
         stripped = line.rstrip()
@@ -29,7 +29,7 @@ async def on_message(message):
     if message.author == client.user:
        return
     if message.content.startswith('!'):
-        msg = kommando_check(message.content,admin).format(message)
+        msg = kommando_check(message.content).format(message)
         await client.send_message(message.channel, msg)
 
 @client.event
