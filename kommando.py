@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+from masteroverwatch import masteroverwatch
+
 commands = {}
 #Remember to set definitive path
-with open("/usr/local/src/sthlmesport-bot/commands.csv") as f:
+with open("commands.csv") as f:
     for line in f:
         if line.find(","):
             (key, val) = line.split(",",1)
@@ -46,6 +48,12 @@ def kommando_check(message,is_admin):
                 return "The command " + key2 + " has been removed"
     elif (message.lower().startswith('!add') or message.lower().startswith('!remove')) and is_admin == False:
         return "Sorry only Admins can do that!"
+    elif message.lower().startswith('!masterow'):
+        if message.lower() == "!masterow":
+            return "To see Overwatch stats type: !masterow battletag#1337 (replace with your full battletag)"
+        else:
+            key1, key2 = message.split(" ")
+            return masteroverwatch(key2)
     elif message in commands:
         return commands[message]
     else:

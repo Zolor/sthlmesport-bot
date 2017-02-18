@@ -6,11 +6,11 @@ import logging
 from kommando import kommando_check
 
 #Make sure logging is targetted!
-logging.basicConfig(filename='/usr/local/src/sthlmesport-bot/log/sthlmesportbot.log',level=logging.INFO,format='%(asctime)s %(message)s')
+logging.basicConfig(filename='sthlmesportbot.log',level=logging.INFO,format='%(asctime)s %(message)s')
 
 client = discord.Client()
 #Make sure dictionary.txt is targetted!
-with open('/usr/local/src/sthlmesport-bot/dictionary.txt', 'r') as handle:
+with open('dictionary.txt', 'r') as handle:
     word_list = []
     for line in handle:
         stripped = line.rstrip()
