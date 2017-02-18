@@ -30,12 +30,8 @@ async def on_message(message):
     if message.author == client.user:
        return
     if message.content.startswith('!'):
-<<<<<<< HEAD
         is_admin = message.author.permissions_in(message.channel).administrator
         msg = kommando_check(message.content,is_admin).format(message)
-=======
-        msg = kommando_check(message.content).format(message)
->>>>>>> f1ec1daf388fbc7a7c0cd17aef6c410ddd9ba802
         await client.send_message(message.channel, msg)
 
 @client.event
