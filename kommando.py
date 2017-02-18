@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 commands = {}
-with open("commands.csv") as f:
+#Remember to set definitive path
+with open("/usr/local/src/sthlmesport-bot/commands.csv") as f:
     for line in f:
         if line.find(","):
             (key, val) = line.split(",",1)
