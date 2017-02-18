@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from discord.ext.commands import Bot
 import discord
 import secret
@@ -29,7 +30,8 @@ async def on_message(message):
     if message.author == client.user:
        return
     if message.content.startswith('!'):
-        msg = kommando_check(message.content,admin).format(message)
+        is_admin = message.author.permissions_in(message.channel).administrator
+        msg = kommando_check(message.content,is_admin).format(message)
         await client.send_message(message.channel, msg)
 
 @client.event
