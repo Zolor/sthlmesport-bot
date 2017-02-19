@@ -27,7 +27,8 @@ def masteroverwatch(battletag):
                 " winrate. Favorite heroes are " + hero1 + ", " + hero2 + " and " + hero3 + ".")
                 return(msg)
             else:
-                msg = battletag + " has not yet played competitive and has " + master_winrate_soup + " winrate"
+                msg = (battletag + " has not yet played competitive and has " + master_winrate_soup + 
+                " winrate. Favorite heroes are " + hero1 + ", " + hero2 + " and " + hero3 + ".")
                 return msg
         except urllib.error.HTTPError as err:
             if err.code == 404:
