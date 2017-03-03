@@ -24,11 +24,11 @@ def masteroverwatch(battletag):
             hero3 = heroes_soup[2].get_text()
             if master_mmr_soup != "—Skil":
                 msg = (battletag + " is " + master_mmr_soup + " MMR and has " + master_winrate_soup + 
-                " winrate. Favorite heroes are " + hero1 + ", " + hero2 + " and " + hero3 + ".")
+                " winrate. Favorite heroes are " + hero1 + ", " + hero2 + " and " + hero3 + ". " + url)
                 return(msg)
             else:
                 msg = (battletag + " has not yet played competitive and has " + master_winrate_soup + 
-                " winrate. Favorite heroes are " + hero1 + ", " + hero2 + " and " + hero3 + ".")
+                " winrate in QM. Favorite heroes in QM are " + hero1 + ", " + hero2 + " and " + hero3 + ". " + url)
                 return msg
         except urllib.error.HTTPError as err:
             if err.code == 404:
